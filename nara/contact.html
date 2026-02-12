@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Book - Nara Lashes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo" title="Nara Lashes">
+                    <img src="nara.png" alt="Nara Lashes Logo">
+                </a>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="cta-button">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-page">
+        <div class="container">
+            <h2>Get in Touch & Book Your Appointment</h2>
+            
+            <!-- Map -->
+            <div class="map-container" id="map"></div>
+
+            <!-- Contact Info and Booking Form -->
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <h4>Location</h4>
+                            <p>456 Lash Avenue<br>Nairobi, Kenya<br>+254 (0)7XX XXX XXX</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+254729123456" style="color: var(--primary-pink); text-decoration: none;">+254 729 123 456</a><br>
+                            <a href="tel:+254112445566" style="color: var(--primary-pink); text-decoration: none;">+254 11 244 5566</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:bookings@naralashes.com" style="color: var(--primary-pink); text-decoration: none;">bookings@naralashes.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">🕐</span>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 10am - 8pm<br>
+                            Saturday: 9am - 9pm<br>
+                            Sunday: 11am - 6pm</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">💬</span>
+                        <div>
+                            <h4>Follow Us</h4>
+                            <p>
+                                <a href="https://instagram.com" target="_blank" style="color: var(--primary-pink); text-decoration: none; margin-right: 1rem;">Instagram</a>
+                                <a href="https://facebook.com" target="_blank" style="color: var(--primary-pink); text-decoration: none;">Facebook</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <form class="contact-form" id="bookingForm">
+                    <h3>Book Your Appointment</h3>
+                    
+                    <input 
+                        type="text" 
+                        id="name" 
+                        placeholder="Your Full Name" 
+                        required
+                        pattern="[A-Za-z\s]+"
+                        title="Please enter a valid name"
+                    >
+                    
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="Your Email Address" 
+                        required
+                    >
+                    
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        placeholder="Your Phone Number (e.g., +254729123456)" 
+                        required
+                        pattern="^\+?254[0-9]{9}$"
+                        title="Please enter a valid Kenyan phone number"
+                    >
+                    
+                    <input 
+                        type="date" 
+                        id="date" 
+                        required
+                    >
+                    
+                    <label for="service" style="color: var(--text-dark); font-weight: 500; display: block; margin-bottom: 0.5rem;">Select Service</label>
+                    <select id="service" required>
+                        <option value="">-- Choose a Service --</option>
+                        <option value="classic-lashes">Classic Lashes - KES 5,500</option>
+                        <option value="volume-lashes">Volume Lashes - KES 7,500</option>
+                        <option value="hybrid-lashes">Hybrid Lashes - KES 6,500</option>
+                        <option value="lash-fill">Lash Fill - KES 2,000-3,000</option>
+                        <option value="colored-lashes">Colored Lashes - KES 6,000</option>
+                        <option value="removal">Professional Removal - KES 1,500</option>
+                    </select>
+                    
+                    <label for="time" style="color: var(--text-dark); font-weight: 500; display: block; margin-bottom: 0.5rem;">Preferred Time</label>
+                    <select id="time" required>
+                        <option value="">-- Select Time --</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                        <option value="17:00">5:00 PM</option>
+                        <option value="18:00">6:00 PM</option>
+                    </select>
+                    
+                    <textarea 
+                        id="notes" 
+                        placeholder="Special Requests or Questions (e.g., first time getting lashes, lash preferences, allergies)" 
+                        rows="4"
+                    ></textarea>
+                    
+                    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Nara Lashes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" title="Follow us on Instagram">Instagram</a>
+                <a href="https://facebook.com" target="_blank" title="Like us on Facebook">Facebook</a>
+                <a href="https://tiktok.com" target="_blank" title="Follow us on TikTok">TikTok</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        // Initialize Map
+        const map = L.map('map').setView([-1.2864, 36.8172], 13); // Nairobi coordinates
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Add marker with popup
+        const marker = L.marker([-1.2864, 36.8172]).addTo(map);
+        marker.bindPopup('<b>Nara Lashes</b><br>456 Lash Avenue<br>Nairobi, Kenya<br><a href="tel:+254729123456">+254 729 123 456</a>');
+        marker.openPopup();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
